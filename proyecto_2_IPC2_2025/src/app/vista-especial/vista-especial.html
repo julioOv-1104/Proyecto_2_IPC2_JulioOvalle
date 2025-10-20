@@ -32,7 +32,7 @@
   <form> 
     <div class="mb-3">
     <label>Ingrese el texto</label><br>
-    <input type="text"  required/><br>
+    <input type="text" [(ngModel)]="textoAnuncio" name="texto" required/><br>
     </div>
     
     <label >Precio por dia: {{precioPorDia}}</label>
@@ -46,10 +46,19 @@
     </select>
     <br>
     </div>
+
+   <h4>Vista previa</h4>
+   <p style="border:2px solid #1c84c0; padding:10px">
+    {{textoAnuncio}}
+   </p>
+
     <label>Total: {{total+precioTexto}} </label><br>
     
     <button type="submit">Comprar</button>
   </form>
+ 
+  
+
 </div>
 
 <div *ngIf="mostrarFormularioImagen" >
@@ -57,12 +66,12 @@
     <h6>Comprar anuncio de texto e Imagen</h6>
     <div class="mb-3">
     <label>Ingrese el texto</label><br>
-    <input type="text"  required/><br>
+    <input type="text" [(ngModel)]="textoAnuncio" name="texto" required/><br>
     </div>
 
     <div class="mb-3">
     <label>Ingrese la URL de la imagen</label><br>
-    <input type="text"  required/><br>
+    <input type="text" [(ngModel)]="urlAnuncio" name="imagen"  required/><br>
     </div>
     
     <label >Precio por dia: {{precioPorDia}}</label>
@@ -76,6 +85,14 @@
     </select>
     <br>
     </div>
+
+    <h4>Vista Previa</h4>
+    <p style="border:2px solid #e4e7e9; padding:10px">
+    {{textoAnuncio}}
+   </p>
+    <img *ngIf="urlAnuncio"  [src]="urlAnuncio" alt="Vista Previa" width="150"/><br>
+
+
     <label>Total: {{total+precioImagen}}</label><br>
     <button type="submit">Comprar</button>
   </form>
@@ -86,12 +103,12 @@
     <h6>Comprar anuncio de video y texto</h6>
     <div class="mb-3">
     <label>Ingrese el texto</label><br>
-    <input type="text"  required/><br>
+    <input type="text" [(ngModel)]="textoAnuncio" name="texto" required/><br>
     </div>
 
     <div class="mb-3">
     <label>Ingrese la URL del video</label><br>
-    <input type="text"  required/><br>
+    <input type="text" [(ngModel)]="urlAnuncio" name="video" required (input)="getVideoUrl()"/><br>
     </div>
     
     <label >Precio por dia: {{precioPorDia}}</label>
@@ -105,6 +122,20 @@
     </select>
     <br>
     </div>
+  
+    <h4>Vista Previa:</h4>
+    <p style="border:2px solid #e4e7e9; padding:10px">
+    {{textoAnuncio}}
+   </p>
+    <iframe
+    *ngIf="videoSeguro"
+    [src]="videoSeguro"
+    width="300"
+    height="180"
+    frameborder="0"
+    allow="autoplay; encrypted-media">
+  </iframe>
+
     <label>Total: {{total+precioVideo}}</label><br>
     <button type="submit">Comprar</button>
   </form>
