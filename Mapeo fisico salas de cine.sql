@@ -7,6 +7,7 @@ CREATE TABLE cine(
 nombre_cine VARCHAR(100) NOT NULL,
 costo_global double NOT NULL,
 anuncios_activos boolean NOT NULL,
+costo_bloquear DOUBLE NOT NULL,
 CONSTRAINT pk_nombre_cine PRIMARY KEY (nombre_cine)
 );
 
@@ -37,7 +38,12 @@ correo_usuario VARCHAR(100) NOT NULL,
 contrasenna VARCHAR(30) NOT NULL,
 cartera_digital DOUBLE NOT NULL,
 tipo_usuario ENUM('ADMIN_CINE','ADMIN_SISTEMA','COMUN','ESPECIAL') NOT NULL,
-CONSTRAINT pk_correo_usuario PRIMARY KEY (correo_usuario)
+nombre_cine VARCHAR(100) NOT NULL,
+precio_anuncio_texto DOUBLE DEFAULT 200,
+precio_anuncio_imagen DOUBLE DEFAULT 300,
+precio_anuncio_video DOUBLE DEFAULT 450,
+CONSTRAINT pk_correo_usuario PRIMARY KEY (correo_usuario),
+CONSTRAINT fk_cine_usuario FOREIGN KEY (nombre_cine) REFERENCES cine(nombre_cine)
 );
 
 CREATE TABLE anuncio(

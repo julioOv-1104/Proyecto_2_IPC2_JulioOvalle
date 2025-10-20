@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn-green {
+  background-color: #069906d0 !important; 
+  border: none;
+  color: white;
+  transition: 0.3s;
+  width: 5cm;
+  height: 5cm;
+}
+
+.btn-green:hover {
+  background-color: #12bd6d !important; 
+  color: white;
+}
+
+.btn-yellow {
+  background-color: #b1bd09 !important; 
+  border: none;
+  color: white;
+  transition: 0.3s;
+  width: 5cm;
+  height: 5cm;
+}
+
+.btn-yellow:hover {
+  background-color: #cccf13 !important; 
+  color: white;
+}
+
+.btn-blue {
+  background-color: #2b65e4 !important; 
+  border: none;
+  color: white;
+  transition: 0.3s;
+  width: 5cm;
+  height: 5cm;
+}
+
+.btn-blue:hover {
+  background-color: #1bc3e0 !important; 
+  color: white;
+}

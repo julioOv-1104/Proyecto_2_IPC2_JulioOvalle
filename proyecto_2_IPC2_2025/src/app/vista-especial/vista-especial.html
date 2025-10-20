@@ -1,0 +1,115 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<div class="card shadow p-4">
+
+    <h2>Comprar anuncio</h2>
+
+<div class="mb-3">
+<button class="btn btn-green px-4 py-2 fw-bold" (click)="mostrarComprarTexto()">
+    Anuncio de Texto: {{precioTexto}}
+</button>
+
+<button class="btn btn-yellow px-4 py-2 fw-bold" (click)="mostrarComprarImagen()">
+    Anuncio de Texto e Imagen: 
+    {{precioImagen}}
+</button>
+
+<button class="btn btn-blue px-4 py-2 fw-bold" (click)="mostrarComprarVideo()">
+    Anuncio de Video y texto: 
+    {{precioVideo}}
+</button>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<div class="card shadow p-4">
+
+<div *ngIf="mostrarFormularioTexto" >
+    <h6>Comprar anuncio de texto</h6>
+  <form> 
+    <div class="mb-3">
+    <label>Ingrese el texto</label><br>
+    <input type="text"  required/><br>
+    </div>
+    
+    <label >Precio por dia: {{precioPorDia}}</label>
+    <div class="mb-3"> 
+    <label>Periodo de tiempo (dias):</label>
+    <select [(ngModel)]="periodoSeleccionado" (change)="mostrarTotalCompra()" name="periodo">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="7">7</option>
+        <option value="14">14</option>
+    </select>
+    <br>
+    </div>
+    <label>Total: {{total+precioTexto}} </label><br>
+    
+    <button type="submit">Comprar</button>
+  </form>
+</div>
+
+<div *ngIf="mostrarFormularioImagen" >
+  <form>
+    <h6>Comprar anuncio de texto e Imagen</h6>
+    <div class="mb-3">
+    <label>Ingrese el texto</label><br>
+    <input type="text"  required/><br>
+    </div>
+
+    <div class="mb-3">
+    <label>Ingrese la URL de la imagen</label><br>
+    <input type="text"  required/><br>
+    </div>
+    
+    <label >Precio por dia: {{precioPorDia}}</label>
+    <div class="mb-3">
+    <label>Periodo de tiempo (dias):</label>
+    <select [(ngModel)]="periodoSeleccionado" (change)="mostrarTotalCompra()" name="periodo">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="7">7</option>
+        <option value="14">14</option>
+    </select>
+    <br>
+    </div>
+    <label>Total: {{total+precioImagen}}</label><br>
+    <button type="submit">Comprar</button>
+  </form>
+</div>
+
+<div *ngIf="mostrarFormularioVideo" >
+  <form>
+    <h6>Comprar anuncio de video y texto</h6>
+    <div class="mb-3">
+    <label>Ingrese el texto</label><br>
+    <input type="text"  required/><br>
+    </div>
+
+    <div class="mb-3">
+    <label>Ingrese la URL del video</label><br>
+    <input type="text"  required/><br>
+    </div>
+    
+    <label >Precio por dia: {{precioPorDia}}</label>
+    <div class="mb-3">
+    <label>Periodo de tiempo (dias):</label>
+    <select [(ngModel)]="periodoSeleccionado" (change)="mostrarTotalCompra()" name="periodo">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="7">7</option>
+        <option value="14">14</option>
+    </select>
+    <br>
+    </div>
+    <label>Total: {{total+precioVideo}}</label><br>
+    <button type="submit">Comprar</button>
+  </form>
+</div>
+
+
+</div>
+</div>
